@@ -1,9 +1,12 @@
 import React from 'react';
-
-import './Layout.styles.css';
+import styled from 'styled-components';
 
 function Layout({ children }) {
-  return <main className="container">{children}</main>;
+  return <Container>{children}</Container>;
 }
+
+const Container = styled.div`
+  margin: 20px;
+`
 
 export default Layout;
