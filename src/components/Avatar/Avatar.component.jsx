@@ -1,14 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export default function Avatar() {
-    return (
-        <Wrapper>
-            <Image>
-
-            </Image>
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      <Image />
+    </Wrapper>
+  );
 }
 
 const Image = styled.img`
@@ -19,7 +17,7 @@ const Image = styled.img`
 `;
 
 const Wrapper = styled.div`
-cursor: pointer;
+  cursor: pointer;
   box-sizing: border-box;
   border-radius: 50%;
   border: 5px solid #ddd;

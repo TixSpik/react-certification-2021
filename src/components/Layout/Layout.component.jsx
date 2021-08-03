@@ -7,6 +7,6 @@ function Layout({ children }) {
 
 const Container = styled.div`
   margin: 20px;
-`
+`;
 
 export default Layout;
