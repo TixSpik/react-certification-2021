@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Logotipo from '../../assets/img/wizeline-logo.png';
 import Avatar from '../Avatar/Avatar.component';
+import SearchInput from '../SearchInput';
 
-export default function Navbar() {
+export default function Navbar({ setSearchInput }) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -11,6 +12,7 @@ export default function Navbar() {
       <Logo href="">
         <img width="150px" src={Logotipo} alt="logotipo" />
       </Logo>
+      <SearchInput setSearchInput={setSearchInput} />
       <BurguerIcon onClick={() => setToggleMenu(!toggleMenu)}>
         <span />
         <span />
@@ -32,6 +34,10 @@ const Nav = styled.div`
   flex-wrap: wrap;
   background-color: #1c5476;
   color: white;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Logo = styled.a`
@@ -55,6 +61,7 @@ const BurguerIcon = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
+    margin-top: 1rem
   }
 `;
 

@@ -4,7 +4,7 @@ import Heading from '../Heading/Heading.component';
 
 export default function ListItem(item) {
   const { snippet } = item;
-
+console.log(item)
   return (
     <ItemContainer>
       <CardImage img={snippet.thumbnails.medium.url} />

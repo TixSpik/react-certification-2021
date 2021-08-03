@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import mock from '../../youtube-videos-mock.json';
 import ListItem from '../ListItem';
+import Loader from '../Loader';
 
-export default function List() {
+export default function List({ result, loading, error }) {
+
+  useEffect(() => {
+    console.log(result?.items)
+  }, [result, loading, error])
+
+  if (loading) {
+    return (
+      <ListContainer>
+        <Loader />
+      </ListContainer>
+    )
+
+  }
+
   return (
     <ListContainer>
-      {mock.items.map((item) => (
-        <div key={item.snippet.publishedAt}>
-          <ListItem {...item} />
-        </div>
-      ))}
+      {result?.items && (
+        result?.items.map((item, idx) => (
+          <div key={idx}>
+            <ListItem {...item} />
+          </div>
+        ))
+      )}
     </ListContainer>
   );
 }
