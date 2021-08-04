@@ -1,12 +1,19 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import styled from 'styled-components'
 import SearchIcon from '../../assets/img/search.svg'
 
-export default function SearchInput({ setSearchInput }) {
+export default function SearchInput({ setSearchInput, fetchData, searchInput }) {
+
+    const history = useHistory()
+
     return (
         <SearchBox>
             <Input placeholder='React, Node, Python...' onChange={e => setSearchInput(e.target.value)} />
-            <SearchBtn>
+            <SearchBtn  onClick={() => {
+                history.push('/')
+                fetchData(searchInput)
+            }}>
                 <img src={SearchIcon} alt='search icon'/>
             </SearchBtn>
         </SearchBox>

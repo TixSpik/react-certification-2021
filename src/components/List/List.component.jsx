@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import ListItem from '../ListItem';
 import Loader from '../Loader';
 
-export default function List({ result, loading, error }) {
-
+export default function List( {result, loading, error, data } ) {
+ 
   useEffect(() => {
-    console.log(result?.items)
   }, [result, loading, error])
 
   if (loading) {
@@ -20,13 +19,13 @@ export default function List({ result, loading, error }) {
 
   return (
     <ListContainer>
-      {result?.items && (
+      {result?.items ? (
         result?.items.map((item, idx) => (
           <div key={idx}>
-            <ListItem {...item} />
+            <ListItem data={data} {...item} />
           </div>
         ))
-      )}
+      ): <div>No hay resultados</div>}
     </ListContainer>
   );
 }

@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logotipo from '../../assets/img/wizeline-logo.png';
 import Avatar from '../Avatar/Avatar.component';
 import SearchInput from '../SearchInput';
 
-export default function Navbar({ setSearchInput }) {
+export default function Navbar({ setSearchInput, fetchData, searchInput }) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
     <Nav data-testid="navbar">
-      <Logo href="">
+      <Logo to='/'>
         <img width="150px" src={Logotipo} alt="logotipo" />
       </Logo>
-      <SearchInput setSearchInput={setSearchInput} />
+      <SearchInput fetchData={fetchData} setSearchInput={setSearchInput} searchInput={searchInput} />
       <BurguerIcon onClick={() => setToggleMenu(!toggleMenu)}>
         <span />
         <span />
@@ -40,7 +41,7 @@ const Nav = styled.div`
   }
 `;
 
-const Logo = styled.a`
+const Logo = styled(Link)`
   padding: 1rem 0;
   text-decoration: none;
   color: white;
