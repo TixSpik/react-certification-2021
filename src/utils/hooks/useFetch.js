@@ -8,7 +8,7 @@ export default function useFetch(query, options) {
 
     const fetchData = async (query = 'Wizeline', options) => {
 
-        const BASE_URL = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDl_unUFnfJYU-Sqg2AdBFWxP7fhLUyItM&type=video&part=snippet&maxResults=15&q=${query}`
+        const BASE_URL = `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_API_KEY}&type=video&part=snippet&maxResults=15&q=${query}`
 
         try {
             const res = await fetch(BASE_URL, options)
